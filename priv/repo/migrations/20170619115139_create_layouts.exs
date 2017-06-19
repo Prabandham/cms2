@@ -10,7 +10,6 @@ defmodule Cms2.Repo.Migrations.CreateLayouts do
 
       timestamps()
     end
-
     create unique_index(:layouts, [:name])
   end
 end

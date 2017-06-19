@@ -19,7 +19,10 @@ defmodule Cms2.Db.Page do
     timestamps()
   end
 
-  def changeset() do
-    # TODO
+  def changeset(struct, params \\ %{}) do
+    struct
+    |> cast(params,[:title, :description, :keywords, :content, :meta, :default, :published, :layout_id])
+    |> validate_required([:title, :description, :keywords, :content, :meta, :default, :published, :layout_id])
+    |> unique_constraint(:default)
   end
 end

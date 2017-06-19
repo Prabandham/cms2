@@ -1,20 +1,20 @@
-defmodule Cms2.Db.Asset do
+defmodule Cms2.Db.Partial do
   @moduledoc false
-
   use Ecto.Schema
   import Ecto.Changeset
 
   @primary_key {:id, :binary_id, autogenerate: true}
-  schema "assets" do
+  schema "partials" do
     field :name, :string
-    field :path, :string
+    field :content, :string
 
     timestamps()
   end
 
   def changeset(struct, params \\ %{}) do
     struct
-    |> cast(params,[:name, :path])
-    |> validate_required([:name, :path])
+    |> cast(params,[:name, :content])
+    |> validate_required([:name, :content])
+    |> unique_constraint(:name)
   end
 end

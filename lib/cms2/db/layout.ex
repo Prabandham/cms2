@@ -13,7 +13,10 @@ defmodule Cms2.Db.Layout do
     timestamps()
   end
 
-  def changeset() do
-    # TODO
+  def changeset(struct, params \\ %{}) do
+    struct
+    |> cast(params,[:name, :description, :content])
+    |> validate_required([:name, :description, :content])
+    |> unique_constraint(:name)
   end
 end

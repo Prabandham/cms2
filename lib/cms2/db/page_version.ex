@@ -1,8 +1,8 @@
 defmodule Cms2.Db.PageVersion do
   @moduledoc false
-
   use Ecto.Schema
   import Ecto.Changeset
+
   @primary_key {:id, :binary_id, autogenerate: true}
   @foreign_key_type :binary_id
   schema "page_versions" do
@@ -16,5 +16,11 @@ defmodule Cms2.Db.PageVersion do
 
     belongs_to :page,   Cms2.Db.Page
     belongs_to :layout, Cms2.Db.Layout
+  end
+
+  def changeset(struct, params \\ %{}) do
+    struct
+    |> cast(params,[:title, :description, :keywords, :content, :meta, :default, :published, :page_id, :layout_id])
+    |> validate_required([:title, :description, :keywords, :content, :meta, :default, :published, :page_id, :layout_id])
   end
 end

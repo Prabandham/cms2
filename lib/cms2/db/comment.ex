@@ -14,7 +14,9 @@ defmodule Cms2.Db.Comment do
     timestamps()
   end
 
-  def changeset() do
-    # TODO
+  def changeset(struct, params \\ %{}) do
+    struct
+    |> cast(params,[:content, :commenter_name, :post_id])
+    |> validate_required([:content, :commenter_name, :post_id])
   end
 end
