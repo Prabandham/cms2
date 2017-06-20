@@ -13,23 +13,24 @@ defmodule Cms2.Web.Router do
     plug :accepts, ["json"]
   end
 
-  scape "/cms", Cms2.Web do
+  scope "/cms", Cms2.Web.Cms do
     pipe_through :browser
 
-    get "/", AuthController, :index
-    post "/login", AuthController, :login
-
-    resources "/layouts", LayoutsController
-    resources "/pages", PagesController
-    resources "/partials", PartialsController
-    resources "/posts", PartialsController
-    resources "assets", AssetsController
+    get         "/",           AuthController,       :index
+    post        "/login",      AuthController,       :login
+    delete      "/logout",     AuthController,       :logout
+    get         "/home",       HomeController,       :index
+    resources   "/layouts",    LayoutsController
+    resources   "/pages",      PagesController
+    resources   "/partials",   PartialsController
+    resources   "/posts",      PartialsController
+    resources   "/assets",     AssetsController
   end
 
   scope "/", Cms2.Web do
     pipe_through :browser # Use the default browser stack
 
-    get "/", PageController, :index
+    get         "/",           PageController,       :index
   end
 
   # Other scopes may use custom stacks.

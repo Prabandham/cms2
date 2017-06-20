@@ -9,7 +9,7 @@ defmodule Cms2.Utils do
   substutes the string with the keys in the map.
 
     Ex: 
-      Cms2.Util("Hello {{world}}", %{world: "World !!!"})
+      Cms2.Util.interpolate("Hello {{world}}", %{world: "World !!!"})
       => "Hello World !!!"
   """
   # TODO add support for @conn (Assigns)

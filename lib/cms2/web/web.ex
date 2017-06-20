@@ -22,6 +22,7 @@ defmodule Cms2.Web do
       import Plug.Conn
       import Cms2.Web.Router.Helpers
       import Cms2.Web.Gettext
+      import Cms2.Interface.AuthInterface, only: [current_user: 1, logged_in?: 1]
     end
   end
 
@@ -39,6 +40,7 @@ defmodule Cms2.Web do
       import Cms2.Web.Router.Helpers
       import Cms2.Web.ErrorHelpers
       import Cms2.Web.Gettext
+      import Cms2.Interface.AuthInterface, only: [current_user: 1, logged_in?: 1]
     end
   end
 

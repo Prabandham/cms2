@@ -8,8 +8,23 @@ defmodule Cms2.Db.CmsAdmin do
   schema "cms_admins" do
     field :name,             :string
     field :email,            :string
+    field :password,         :string, virtual: true
     field :crypted_password, :string
 
     timestamps()
+  end
+
+  def changeset(struct, params \\ %{}) do
+    struct
+    |> cast(params, [:name, :email, :password])
+    |> validate_required([:name, :email, :password])
+    |> validate_format(:email, ~r/@/)
+    |> unique_constraint(:email)
+    |> hash_password
+  end
+
+  defp hash_password(changeset) do
+    changeset
+    |> put_change(:crypted_password, Comeonin.Bcrypt.hashpwsalt(changeset.changes[:password]))
   end
 end
