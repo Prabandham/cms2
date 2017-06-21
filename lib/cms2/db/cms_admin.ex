@@ -17,8 +17,8 @@ defmodule Cms2.Db.CmsAdmin do
   def changeset(struct, params \\ %{}) do
     struct
     |> cast(params, [:name, :email, :password])
-    |> validates_required([:name, :email, :password])
-    |> validates_format(:email, ~r/@/)
+    |> validate_required([:name, :email, :password])
+    |> validate_format(:email, ~r/@/)
     |> unique_constraint(:email)
     |> hash_password
   end

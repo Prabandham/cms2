@@ -10,6 +10,10 @@ defmodule Cms2.Interface.LayoutInterface do
     |> Repo.get_by(default: true)
   end
 
+  def new() do
+    Layout.chageset(%Layout{}, %{})
+  end
+
   def all() do
     Layout
     |> Repo.all()
