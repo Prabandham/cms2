@@ -10,7 +10,6 @@ defmodule Cms2.Interface.CmsAdminInterface do
   end
 
   def get_by_email(email) do
-    IO.puts email
      CmsAdmin 
      |> Repo.get_by(email: String.downcase(email))
   end
