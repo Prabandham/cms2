@@ -58,6 +58,6 @@ exports.config = {
 
   npm: {
     enabled: true,
-    whitelist: ["phoenix", "phoenix_html", "jquery"]
+    whitelist: ["phoenix", "phoenix_html", "jquery", "ace"]
   }
 };

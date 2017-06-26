@@ -21,7 +21,16 @@ import "phoenix_html"
 
 // import socket from "./socket"
 
-$("#menu-toggle").click(function(e) {
-  e.preventDefault();
-  $("#wrapper").toggleClass("active");
+$(document).ready(function() {
+
+  // Menu toggle
+  $("#menu-toggle").click(function(e) {
+    e.preventDefault();
+    $("#wrapper").toggleClass("active");
+  });
+
+  //CodeMirror
+  CodeMirror.fromTextArea(document.getElementById("layouts_content"), {
+    lineNumbers: true
+  });
 });

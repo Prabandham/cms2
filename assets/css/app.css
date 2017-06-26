@@ -144,3 +144,11 @@
       transition: all .4s ease 0s;
   }
 }
+
+.logout-link {
+  margin-top: 100%;
+}
+
+.container {
+  margin-left: 10% !important;
+}

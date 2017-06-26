@@ -1,11 +1,17 @@
 <div id="wrapper" class="active">
   <div id="sidebar-wrapper">
     <ul id="sidebar_menu" class="sidebar-nav">
-      <li class="sidebar-brand"><a id="menu-toggle" href="#">Menu<span id="main_icon" class=""></span></a></li>
+      <li class="sidebar-brand"><a id="menu-toggle" href="#">CMS<span id="main_icon" class=""></span></a></li>
     </ul>
     <ul class="sidebar-nav" id="sidebar">     
-      <li><a>Link1<span class="sub_icon"></span></a></li>
-      <li><a>link2<span class="sub_icon"></span></a></li>
+      <li><a>Layouts<span class="sub_icon pull-right"><%= link "+", to: layouts_path(@conn, :new) %></span></a></li>
+      <li><a>Pages<span class="sub_icon"></span></a></li>
+      <li><a>Partials<span class="sub_icon"></span></a></li>
+      <li><a>Assets<span class="sub_icon"></span></a></li>
+      <li><a>Post<span class="sub_icon"></span></a></li>
+      <li><a>Admins<span class="sub_icon"></span></a></li>
+
+      <li><%= link "Logout", to: auth_path(@conn, :logout), method: :delete, class: "sub_icon logout-link" %></li>
     </ul>
   </div>
 </div>

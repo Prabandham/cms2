@@ -1,0 +1,3 @@
+<h1>Create a new Layout</h1>
+
+<%= render Cms2.Web.Cms.LayoutsView, "form.html", conn: @conn %>

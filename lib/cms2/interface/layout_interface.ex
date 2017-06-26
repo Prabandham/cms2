@@ -11,7 +11,7 @@ defmodule Cms2.Interface.LayoutInterface do
   end
 
   def new() do
-    Layout.chageset(%Layout{}, %{})
+    Layout.changeset(%Layout{})
   end
 
   def all() do

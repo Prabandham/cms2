@@ -1,4 +1,4 @@
-defmodule Cms2.Web.LayoutsController do
+defmodule Cms2.Web.Cms.LayoutsController do
   use Cms2.Web, :controller
 
   def new(conn, _params) do
