@@ -1,7 +1,7 @@
 defmodule Cms2.Web.Cms.AuthController do
   use Cms2.Web, :controller
   alias Cms2.Web.Router.Helpers
-  plug Cms2.Plugs.SessionCheck, only: [:logout]
+  plug Cms2.Plugs.SessionCheck when action in [:logout]
 
   def index(conn, _params) do
     conn
