@@ -10,6 +10,7 @@
     <title>Hello Cms2!</title>
     <link rel="stylesheet" href="<%= static_path(@conn, "/css/app.css") %>">
     <link rel="stylesheet" href="<%= static_path(@conn, "/css/codemirror.css") %>">
+    <link rel="stylesheet" href="<%= static_path(@conn, "/css/monokai.css") %>">
   </head>
 
   <body>
@@ -25,5 +26,7 @@
     </div> <!-- /container -->
     <script src="<%= static_path(@conn, "/js/app.js") %>"></script>
     <script src="<%= static_path(@conn, "/js/codemirror.js") %>"></script>
+    <script src="<%= static_path(@conn, "/js/htmlmixed.js") %>"></script>
+    <script src="<%= static_path(@conn, "/js/markdown.js") %>"></script>
   </body>
 </html>

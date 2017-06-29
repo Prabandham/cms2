@@ -36,6 +36,7 @@ defmodule Cms2.Mixfile do
      {:phoenix_live_reload, "~> 1.0", only: :dev},
      {:gettext, "~> 0.11"},
      {:comeonin, "~> 1.0"},
+     {:earmark, ">= 0.0.0"},
      {:cowboy, "~> 1.0"}]
   end
 

@@ -2,7 +2,7 @@ defmodule Cms2.Web.UserSocket do
   use Phoenix.Socket
 
   ## Channels
-  # channel "room:*", Cms2.Web.RoomChannel
+  channel "content_preview_channel", Cms2.Web.ContentPreviewChannel
 
   ## Transports
   transport :websocket, Phoenix.Transports.WebSocket

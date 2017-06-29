@@ -13,13 +13,14 @@
 // to also remove its path from "config.paths.watched".
 import $ from "jquery"
 import "phoenix_html"
+import socket from "./socket"
 
 // Import local files
 //
 // Local files can be imported directly using relative
 // paths "./socket" or full ones "web/static/js/socket".
 
-// import socket from "./socket"
+//
 
 $(document).ready(function() {
 
@@ -31,6 +32,8 @@ $(document).ready(function() {
 
   //CodeMirror
   CodeMirror.fromTextArea(document.getElementById("layouts_content"), {
-    lineNumbers: true
+      lineNumbers: true,
+      theme: 'monokai',
+      mode: { name: 'markdown' }
   });
 });
