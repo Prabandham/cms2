@@ -54,21 +54,4 @@ let socket = new Socket("/socket", {params: {token: window.userToken}})
 socket.connect()
 
 // Now that you are connected, you can join channels with a topic:
-let channel = socket.channel("content_preview_channel", {});
-let content = document.querySelector("#layouts_content");
-
-content.addEventListener("keypress", event => {
-  alert("This shit got called.");
-  channel.push("content_edited", { body: content.value});
-})
-
-channel.on("formatted_content", payload => {
-  let preview = document.querySelector("#content-preview");
-  preview.html = $(payload.doc);
-})
-
-channel.join()
-  .receive("ok", resp => { console.log("Joined successfully", resp) })
-  .receive("error", resp => { console.log("Unable to join", resp) })
-
 export default socket

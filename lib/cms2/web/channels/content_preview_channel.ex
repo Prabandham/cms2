@@ -5,11 +5,11 @@ defmodule Cms2.Web.ContentPreviewChannel do
     {:ok, socket}
   end
 
-  def handle_in("content_edited", %{"content" => content}, socket) do
-   # TODO make this more robust by validating the logged in user
-   # and notify only to him.
-   IO.puts "This came here."
+  def handle_in("content_edited", %{"body" => content}, socket) do
+    # TODO make this more robust by validating the logged in user
+    # and notify only to him.
     html_doc = Earmark.as_html!(content)
     broadcast! socket, "formatted_content", %{doc: html_doc}
+    {:noreply, socket}
   end
 end

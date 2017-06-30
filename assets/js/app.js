@@ -19,11 +19,28 @@ import socket from "./socket"
 //
 // Local files can be imported directly using relative
 // paths "./socket" or full ones "web/static/js/socket".
-
 //
 
-$(document).ready(function() {
+let channel = socket.channel("content_preview_channel", {})
 
+channel.join()
+    .receive("ok", resp => { console.log("Joined successfully", resp) })
+    .receive("error", resp => { console.log("Unable to join", resp) })
+
+channel.on("formatted_content", payload => {
+    console.log(payload)
+    $("#content-preview").html(payload.doc);
+})
+
+window.EditorConfig = {
+    lineNumbers: true,
+    theme: 'monokai',
+    mode: 'xml',
+    htmlMode: true,
+    height: "auto",
+}
+
+$(document).ready(function() {
   // Menu toggle
   $("#menu-toggle").click(function(e) {
     e.preventDefault();
@@ -31,9 +48,9 @@ $(document).ready(function() {
   });
 
   //CodeMirror
-  CodeMirror.fromTextArea(document.getElementById("layouts_content"), {
-      lineNumbers: true,
-      theme: 'monokai',
-      mode: { name: 'markdown' }
-  });
+  CodeMirror.fromTextArea(document.getElementById("layouts_content"),
+      window.EditorConfig
+  ).on('change', editor => {
+      channel.push("content_edited", { body: editor.getValue() })
+  })
 });
