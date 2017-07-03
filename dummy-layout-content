@@ -1,0 +1,25 @@
+<html>
+  <head>
+    <title>Myfirst layout</title>
+  </head>
+  <body class="container-fluid">
+    <img src="/images/phoenix.png" alt="logo" class="img-responsive"/>
+    <hr />
+    
+    <div>
+  		<div class="jumbotron">
+    		<h2 class="text-center">Welcome to CMS2</h2> 
+    		<h4 class="text-muted text-center">A Cms engine for elixr / Phoenix</h4> 
+  		</div> 
+	</div>
+    
+    <br />
+    
+    <div class="panel panel-default">
+  		<div class="panel-body">
+          <h3 class="text-center"> Some more content in a panel, just for fun.</h3>
+      </div>
+	</div>
+    
+  </body>
+</html>

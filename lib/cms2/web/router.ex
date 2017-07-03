@@ -30,6 +30,7 @@ defmodule Cms2.Web.Router do
   scope "/", Cms2.Web do
     pipe_through :browser # Use the default browser stack
 
+    get         "/*page",      PageController,       :index
     get         "/",           PageController,       :index
   end
 

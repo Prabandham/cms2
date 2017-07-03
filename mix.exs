@@ -17,7 +17,7 @@ defmodule Cms2.Mixfile do
   # Type `mix help compile.app` for more information.
   def application do
     [mod: {Cms2.Application, []},
-     extra_applications: [:logger, :runtime_tools]]
+     extra_applications: [:logger, :runtime_tools, :liquid]]
   end
 
   # Specifies which paths to compile per environment.
@@ -37,6 +37,7 @@ defmodule Cms2.Mixfile do
      {:gettext, "~> 0.11"},
      {:comeonin, "~> 1.0"},
      {:earmark, ">= 0.0.0"},
+     {:liquid, "~> 0.4.0"},
      {:cowboy, "~> 1.0"}]
   end
 
