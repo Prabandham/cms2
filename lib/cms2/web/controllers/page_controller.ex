@@ -3,7 +3,7 @@ defmodule Cms2.Web.PageController do
 
   def index(conn, %{"page" => [page_slug]}) do
     if page_slug do
-        // Find the page by the name / slug and send it
+#         Find the page by the name / slug and send it
     end
   end
 
@@ -11,9 +11,9 @@ defmodule Cms2.Web.PageController do
     page = Cms2.Db.Page
         |> Cms2.Repo.get_by(default: true, published: true)
         |> Cms2.Repo.preload(:layout)
-    layout = page.layout
+    page_content = page.content
     main_layout_template = Liquid.Template.parse(layout.content)
-    {:ok, rendered, _} = Liquid.Template.render(main_layout_template, page)
+    {:ok, rendered, _} = Liquid.Template.render(main_layout_template, %{"page.content" => page.content})
     render(conn, "index.html", page: page)
   end
 end
