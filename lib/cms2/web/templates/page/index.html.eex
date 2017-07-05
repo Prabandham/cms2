@@ -1,1 +1,1 @@
-<h1 class='text-center'> This is where we will have my CMS </h1>
+<%= raw(@page) %>
